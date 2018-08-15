@@ -9,12 +9,10 @@ import App from './App'
 
 import './index.css'
 
-if (module.hot) {
-  module.hot.accept()
-}
+const store = configureStore()
 
 ReactDOM.render(
-  <Provider store={configureStore()}>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root'))
