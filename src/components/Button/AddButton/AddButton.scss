@@ -1,15 +1,24 @@
 @import "../../../theme/theme";
 $iconSize: 12px;
-$hoverColor: #0d3349;
 $activeColor: #2b81af;
 
 .container {
   @extend .flex;
+  width: 134px;
   color: $textColor;
   user-select: none;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 12px;
+  padding: 5px;
+  border-radius: 18px;
+  cursor: pointer;
+  &:hover {
+    background-color: $itemColor;
+  }
+  &:active {
+    background-color: lightgray;
+  }
   .icon {
     @extend .flex;
     height: $iconSize;
@@ -17,13 +26,6 @@ $activeColor: #2b81af;
     border-radius: 50%;
     margin-right: 5px;
     padding: 5px;
-    cursor: pointer;
     background-color: $buttonColor;
-    &:hover {
-      background-color: $hoverColor;
-    }
-    &:active {
-      background-color: $activeColor;
-    }
   }
 }

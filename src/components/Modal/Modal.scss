@@ -1,7 +1,8 @@
 @import "../../theme/theme";
 .container {
+  @extend .flex;
+  position: fixed;
   .background {
-    @extend .flex;
     position: fixed;
     left: 0;
     top: 0;
@@ -10,6 +11,8 @@
     background-color: rgba(0, 0, 0, 0.5);
   }
   .modal {
+    position: fixed;
+    top: 0;
     @extend .shadow;
     height: 400px;
     width: 500px;

@@ -1,18 +1,20 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
 import style from './Modal.scss'
 
-const Modal = ({ open, onOutsideClick }) => (
+const Modal = ({ children, open, onOutsideClick }) => (
   <div className={style.container}>
     {
       open
         ?
-          <div className={style.background} onClick={onOutsideClick}>
-            <div className={style.modal}>
-              modal
+          <Fragment>
+            <div className={style.background} onClick={e => { console.log(e.nativeEvent); onOutsideClick() }}>
             </div>
-          </div>
+            <div className={style.modal} onClick={e => { console.log(e.nativeEvent); e.nativeEvent.preventDefault() }}>
+              {children}
+            </div>
+          </Fragment>
         :
           null
     }
