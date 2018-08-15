@@ -1,0 +1,22 @@
+@import "../../theme/theme";
+
+.container {
+  @extend .shadow;
+  margin: 100px 50px;
+  width: 450px;
+  background-color: $light;
+  border-radius: 5px;
+
+  header {
+    font-size: 14px;
+    padding: 10px 20px;
+    color: $buttonColor;
+    font-weight: 400;
+    user-select: none;
+    text-transform: uppercase;
+  }
+
+  footer {
+    padding: 10px;
+  }
+}
