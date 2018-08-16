@@ -1,0 +1,25 @@
+@import "../../../theme/theme";
+
+.container {
+  @extend .flex;
+  width: 80px;
+  padding: 8px 5px;
+  border-radius: 20px;
+  background-color: $accentColor;
+  color: $itemColor;
+  cursor: pointer;
+  user-select: none;
+  &:not(.disabled) {
+    &:hover {
+      @extend .shadow;
+      background-color: $buttonColor;
+    }
+    &:active {
+      background-color: #919191;
+    }
+  }
+  &.disabled {
+    background-color: $disabledColor;
+    cursor: default;
+  }
+}

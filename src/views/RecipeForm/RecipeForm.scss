@@ -1,0 +1,42 @@
+@import "../../theme/theme";
+
+.section {
+  padding: 10px 1em 0;
+  .title {
+    color: $buttonColor;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .content {
+    padding: 0.5em;
+  }
+}
+
+.ingredient {
+  @extend .flex;
+  align-items: baseline;
+  & > :first-child {
+    margin-right: 10px;
+    flex: 0 0 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $accentColor;
+  }
+  .item {
+    flex: 1 0 100px;
+    @extend .flex;
+    justify-content: space-between;
+  }
+  .product {
+    flex: 0 0 270px;
+  }
+  .amount {
+    flex: 0 0 120px;
+  }
+}
+
+.addButton {
+  font-size: 12px;
+}

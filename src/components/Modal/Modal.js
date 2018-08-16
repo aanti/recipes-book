@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
 
+import { BasicButton } from '../Button'
+
 import style from './Modal.scss'
 
 const Modal = ({ children, open, onOutsideClick }) => (
@@ -9,10 +11,16 @@ const Modal = ({ children, open, onOutsideClick }) => (
       open
         ?
           <Fragment>
-            <div className={style.background} onClick={e => { console.log(e.nativeEvent); onOutsideClick() }}>
-            </div>
-            <div className={style.modal} onClick={e => { console.log(e.nativeEvent); e.nativeEvent.preventDefault() }}>
-              {children}
+            <div className={style.background}>
+              <div className={style.modal}>
+                <div className={style.content}>
+                  {children}
+                </div>
+                <footer>
+                  <BasicButton label="SAVE" disabled onClick={onOutsideClick} />
+                  <BasicButton label="CANCEL" onClick={onOutsideClick} />
+                </footer>
+              </div>
             </div>
           </Fragment>
         :

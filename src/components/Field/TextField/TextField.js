@@ -19,12 +19,12 @@ export class TextInput extends Component {
 
   render () {
     const { active } = this.state
-    const { input, meta: { error } = { error: '' }, label, type = 'input' } = this.props
+    const { input, meta: { error } = { error: '' }, className, label, type = 'input', placeholder } = this.props
     return (
-      <div className={style.container}>
+      <div className={classnames(style.container, className)}>
         <div className={style.label}>{label}</div>
         {
-          React.createElement(type, { ref: this.inputRef, onFocus: this.handleFocus, onBlur: this.handleBlur })
+          React.createElement(type, { ref: this.inputRef, placeholder, onFocus: this.handleFocus, onBlur: this.handleBlur })
         }
         <div className={classnames(style.underline, active ? style.active : style.normal)} />
         <div className={style.errorText}>{error}</div>
