@@ -4,3 +4,7 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #1fb4ff;
 }
+
+html {
+  overflow-y: overlay;
+}
