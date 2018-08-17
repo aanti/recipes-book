@@ -5,7 +5,7 @@ import Section from '../../../components/Section/Section'
 
 import style from './RecipeItem.scss'
 
-const RecipeItem = ({ name, description, ingredients = [], recipe = [], open, onClick }) => (
+const RecipeItem = ({ name, id, description, ingredients = [{}], recipe = [], open, onClick, onDelete }) => (
   <div className={classnames(style.container, open && style.expanded)} onClick={onClick}>
     <div className={style.name}>{name}</div>
     <div className={style.description}>{description}</div>
@@ -14,8 +14,8 @@ const RecipeItem = ({ name, description, ingredients = [], recipe = [], open, on
         <div className={style.content}>
           <Section title="ingredients" titleColor="#fff">
             {
-              ingredients.map(({ product, amount }) => (
-                <div className={style.ingredient}>
+              ingredients.map(({ product, amount }, i) => (
+                <div key={i} className={style.ingredient}>
                   <span>{product}</span>
                   <span>{amount}</span>
                 </div>
@@ -24,13 +24,14 @@ const RecipeItem = ({ name, description, ingredients = [], recipe = [], open, on
           </Section>
           <Section title="recipe" titleColor="#fff">
             {
-              recipe.map((step) => (
-                <div>
+              recipe.map((step, i) => (
+                <div key={i}>
                   <span>{step}</span>
                 </div>
               ))
             }
           </Section>
+          <div onClick={() => onDelete(id)}>DELETE RECIPE!</div>
         </div>
       )
     }

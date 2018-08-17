@@ -82,7 +82,7 @@ export const InputArray = ({ children, fields = [], meta, newItemLabel, ...props
   <div>
     {
       fields.map((field, i) => (
-        <div className={style.arrayItem}>
+        <div key={field} className={style.arrayItem}>
           <div />
           { children(field, i) }
           { (fields.length > 1) && <DeleteIcon size={10} color="lightgray" onClick={() => fields.remove(i)} /> }

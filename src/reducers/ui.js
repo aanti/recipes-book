@@ -2,7 +2,7 @@ import * as types from '../actions/actionTypes'
 
 const InitialState = {
   modal: {
-    open: true
+    open: false
   }
 }
 

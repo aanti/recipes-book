@@ -13,3 +13,8 @@ export const addRecipe = (values) => ({
   type: types.ADD_RECIPE,
   payload: { ...values, id: uuid() }
 })
+
+export const deleteRecipe = (id) => ({
+  type: types.DELETE_RECIPE,
+  payload: { id }
+})

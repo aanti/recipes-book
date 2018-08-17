@@ -14,7 +14,7 @@ const RecipeForm = ({ handleSubmit, onCancel }) => (
       <TextField name="description" placeholder="description" />
     </Section>
     <Section title="Ingredients">
-      <IngredientArray name="ingredient" newItemLabel="add ingredient" />
+      <IngredientArray name="ingredients" newItemLabel="add ingredient" />
     </Section>
     <Section title="Recipe">
       <TextFieldArray name="recipe" newItemLabel="add step" placeholder="what should I do?" />
@@ -30,6 +30,6 @@ export default reduxForm({
   form: 'createNewRecipe',
   initialValues: {
     recipe: [''],
-    ingredient: [{ product: '', amount: '' }]
+    ingredients: [{ product: '', amount: '' }]
   }
 })(RecipeForm)
