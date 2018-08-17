@@ -4,6 +4,7 @@ import classnames from 'classnames'
 import { Field, FieldArray } from 'redux-form'
 
 import { AddButton } from '../../Button'
+import { Delete as DeleteIcon } from '../../Icon'
 
 import style from './TextField.scss'
 
@@ -55,20 +56,39 @@ export const TextField = ({ name, ...rest }) => (
   <Field name={name} component={TextInput} {...rest} />
 )
 
-export const TextInputArray = ({ fields = [], meta, ...props }) => (
+export const TextFieldArray = ({ name, ...rest }) => (
+  <FieldArray name={name} component={InputArray} itemName={name} {...rest}>
+    {
+      (field) => <TextField name={field} {...rest} />
+    }
+  </FieldArray>
+)
+
+export const IngredientArray = ({ name, ...rest }) => (
+  <FieldArray name={name} component={InputArray} itemName={name} {...rest}>
+    {
+      (field) => (
+        <div className={style.ingredient}>
+          <TextField name={`${field}.product`} className={style.product} placeholder="name of product" />
+          <TextField name={`${field}.amount`} className={style.amount} placeholder="amount / unit" />
+        </div>
+      )
+    }
+  </FieldArray>
+)
+
+
+export const InputArray = ({ children, fields = [], meta, itemName, ...props }) => (
   <div>
     {
-      fields.map(field => (
+      fields.map((field, i) => (
         <div className={style.arrayItem}>
           <div />
-          <TextField name={field} {...props} />
+          { children(field, i) }
+          { (fields.length > 1) && <DeleteIcon size={10} color="lightgray" onClick={() => fields.remove(i)} /> }
         </div>
       ))
     }
-    <AddButton label="Add new step" size={9} width={110} onClick={() => fields.push()} />
+    <AddButton label={`Add new ${itemName}`} size={9} width={110} onClick={() => fields.push()} />
   </div>
-)
-
-export const TextFieldArray = ({ name, ...rest }) => (
-  <FieldArray name={name} component={TextInputArray} {...rest} />
 )
