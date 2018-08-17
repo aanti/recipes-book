@@ -8,17 +8,25 @@ import Modal from './components/Modal/Modal'
 import RecipeList from './views/RecipeList/RecipeList'
 import RecipeForm from './views/RecipeForm/RecipeForm'
 
-import { closeModal } from './actions'
+import { closeModal,addRecipe } from './actions'
 
 class App extends Component {
+  handleModalClose = () => {
+    this.props.dispatch(closeModal())
+  }
+
+  handleSubmit = (values) => {
+    this.props.dispatch(addRecipe(values))
+    this.handleModalClose()
+  }
+
   render() {
     const { ui, dispatch } = this.props
-    console.log(ui)
     return (
       <div className={style.App}>
         <RecipeList />
-        <Modal open={ui.modal.open} onOutsideClick={() => dispatch(closeModal())}>
-          <RecipeForm />
+        <Modal open={ui.modal.open}>
+          <RecipeForm onSubmit={this.handleSubmit} onCancel={this.handleModalClose} />
         </Modal>
       </div>
     )

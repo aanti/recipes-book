@@ -37,3 +37,5 @@ export const list = [
     recipe: ['Make.', 'Eat.']
   }
 ]
+
+export default list

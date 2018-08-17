@@ -5,18 +5,17 @@ import { connect } from 'react-redux'
 import RecipeItem from './RecipeItem/RecipeItem'
 
 import { openModal } from '../../actions'
-import { list as recipes } from '../../mock'
 
 import style from './RecipeList.scss'
 
 class RecipeList extends Component {
   render () {
-    const { dispatch } = this.props
+    const { dispatch, data } = this.props
     return (
       <div className={style.container}>
         <header>List of recipes</header>
         {
-          recipes.map(({ id, ...item }) => (
+          data.map(({ id, ...item }) => (
             <RecipeItem key={id} {...item} />
           ))
         }
@@ -28,4 +27,6 @@ class RecipeList extends Component {
   }
 }
 
-export default connect()(RecipeList)
+const mapStateToProps = ({ data }) => ({ data })
+
+export default connect(mapStateToProps)(RecipeList)

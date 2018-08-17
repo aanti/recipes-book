@@ -2,7 +2,7 @@ import React from 'react'
 import { reduxForm } from 'redux-form'
 
 import { TextInput, TextField, TextFieldArray, IngredientArray } from '../../components/Field/TextField/TextField'
-import { AddButton } from '../../components/Button'
+import { AddButton, BasicButton } from '../../components/Button'
 
 import style from './RecipeForm.scss'
 
@@ -15,7 +15,7 @@ const Section = ({ title, children }) => (
   </section>
 )
 
-const RecipeForm = () => (
+const RecipeForm = ({ handleSubmit, onCancel }) => (
   <div>
     <Section title="General">
       <TextField name="name" placeholder="name" />
@@ -27,6 +27,10 @@ const RecipeForm = () => (
     <Section title="Recipe">
       <TextFieldArray name="step" placeholder="what should I do?" />
     </Section>
+    <footer>
+      <BasicButton label="save" onClick={handleSubmit} />
+      <BasicButton label="cancel" onClick={onCancel} />
+    </footer>
   </div>
 )
 

@@ -5,7 +5,7 @@ import { BasicButton } from '../Button'
 
 import style from './Modal.scss'
 
-const Modal = ({ children, open, onOutsideClick }) => (
+const Modal = ({ children, open }) => (
   <div className={style.container}>
     {
       open
@@ -16,10 +16,6 @@ const Modal = ({ children, open, onOutsideClick }) => (
                 <div className={style.content}>
                   {children}
                 </div>
-                <footer>
-                  <BasicButton label="SAVE" disabled onClick={onOutsideClick} />
-                  <BasicButton label="CANCEL" onClick={onOutsideClick} />
-                </footer>
               </div>
             </div>
           </Fragment>
