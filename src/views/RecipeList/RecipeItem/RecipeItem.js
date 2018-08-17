@@ -1,11 +1,39 @@
 import React, { Component } from 'react'
+import classnames from 'classnames'
+
+import Section from '../../../components/Section/Section'
 
 import style from './RecipeItem.scss'
 
-const RecipeItem = ({ name, description, open, onClick }) => (
-  <div className={style.container} style={{ height: open ? 500 : 50 }} onClick={onClick}>
+const RecipeItem = ({ name, description, ingredients = [], recipe = [], open, onClick }) => (
+  <div className={classnames(style.container, open && style.expanded)} onClick={onClick}>
     <div className={style.name}>{name}</div>
     <div className={style.description}>{description}</div>
+    {
+      open && (
+        <div className={style.content}>
+          <Section title="ingredients" titleColor="#fff">
+            {
+              ingredients.map(({ product, amount }) => (
+                <div className={style.ingredient}>
+                  <span>{product}</span>
+                  <span>{amount}</span>
+                </div>
+              ))
+            }
+          </Section>
+          <Section title="recipe" titleColor="#fff">
+            {
+              recipe.map((step) => (
+                <div>
+                  <span>{step}</span>
+                </div>
+              ))
+            }
+          </Section>
+        </div>
+      )
+    }
   </div>
 )
 

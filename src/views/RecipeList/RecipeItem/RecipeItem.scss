@@ -11,20 +11,36 @@
   height: 50px;
   cursor: pointer;
   border-left: 8px solid $accentColor;
-  transition: height 0.2s ease-out;
+  transition: height 0.4s ease-out;
+  color: $textColor;
 
   .name {
     font-size: 16px;
-    color: $textColor;
   }
   .description {
     font-size: 12px;
     font-weight: 300;
-    color: $textColor;
+  }
+
+  .content {
+    padding: 1em 0;
+    font-size: 14px;
   }
 
   &:hover {
     opacity: 1;
     background-color: #FE5F55;
   }
+
+  &.expanded {
+    height: 500px;
+    opacity: 1;
+    background-color: #FE5F55;
+  }
+}
+
+.ingredient {
+  font-size: 12px;
+  padding: 0.25em 0;
+  border-bottom: 1px solid lightgray;
 }

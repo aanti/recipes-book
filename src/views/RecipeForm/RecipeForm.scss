@@ -1,16 +1,7 @@
 @import "../../theme/theme";
 
-.section {
-  padding: 10px 1em 0;
-  .title {
-    color: $buttonColor;
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  .content {
-    padding: 0.5em;
-  }
+.container {
+  padding: 10px 1em;
 }
 
 .ingredient {

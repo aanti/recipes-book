@@ -57,7 +57,7 @@ export const TextField = ({ name, ...rest }) => (
 )
 
 export const TextFieldArray = ({ name, ...rest }) => (
-  <FieldArray name={name} component={InputArray} itemName={name} {...rest}>
+  <FieldArray name={name} component={InputArray} {...rest}>
     {
       (field) => <TextField name={field} {...rest} />
     }
@@ -65,7 +65,7 @@ export const TextFieldArray = ({ name, ...rest }) => (
 )
 
 export const IngredientArray = ({ name, ...rest }) => (
-  <FieldArray name={name} component={InputArray} itemName={name} {...rest}>
+  <FieldArray name={name} component={InputArray} {...rest}>
     {
       (field) => (
         <div className={style.ingredient}>
@@ -78,7 +78,7 @@ export const IngredientArray = ({ name, ...rest }) => (
 )
 
 
-export const InputArray = ({ children, fields = [], meta, itemName, ...props }) => (
+export const InputArray = ({ children, fields = [], meta, newItemLabel, ...props }) => (
   <div>
     {
       fields.map((field, i) => (
@@ -89,6 +89,6 @@ export const InputArray = ({ children, fields = [], meta, itemName, ...props }) 
         </div>
       ))
     }
-    <AddButton label={`Add new ${itemName}`} size={9} width={110} onClick={() => fields.push()} />
+    <AddButton label={newItemLabel} size={9} width={110} onClick={() => fields.push()} />
   </div>
 )

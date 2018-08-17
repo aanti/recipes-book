@@ -5,7 +5,7 @@ export const list = [
     id: uuid(),
     name: 'Keylime pie',
     description: 'You wil always miss it! Yum yum :)',
-    ingredients: [],
+    ingredients: [{ product: 'Flour', amount: '220g' }, { product: 'Keylime fruit', amount: '4 - 5' }],
     recipe: ['Make.', 'Eat.']
   },
   {

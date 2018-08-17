@@ -1,0 +1,12 @@
+@import "../../theme/theme";
+.section {
+  .title {
+    color: $buttonColor;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .content {
+    padding: 0.5em;
+  }
+}
