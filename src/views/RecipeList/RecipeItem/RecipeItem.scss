@@ -13,6 +13,7 @@
   border-left: 8px solid $accentColor;
   transition: height 0.4s ease-out;
   color: $textColor;
+  overflow: hidden;
 
   .name {
     font-size: 16px;
@@ -33,7 +34,6 @@
   }
 
   &.expanded {
-    height: 500px;
     opacity: 1;
     background-color: #FE5F55;
   }
