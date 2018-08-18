@@ -43,7 +43,8 @@ class RecipeItem extends Component {
           <Section className={style.section} title="recipe" titleColor="#1fb4ff">
             {
               recipe.map((step, i) => (
-                <div key={i}>
+                <div className={style.recipe} key={i}>
+                  <span>{i + 1}.</span>
                   <span>{step}</span>
                 </div>
               ))

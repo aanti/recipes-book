@@ -5,9 +5,11 @@
 }
 
 .question {
+  @extend .flex;
   padding: 0.5em 0.5em 1em;
   color: $textColor;
   .name {
     font-weight: 500;
+    color: $accentColor;
   }
 }

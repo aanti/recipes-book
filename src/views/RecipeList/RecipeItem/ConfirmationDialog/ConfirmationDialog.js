@@ -8,7 +8,7 @@ import style from './ConfirmationDialog.scss'
 const ConfirmationDialog = ({ name, id, open, onApply, onCancel }) => (
   <Modal className={style.container} open={open}>
     <div className={style.question}>
-      Are you sure you want to delete recipe <span className={style.name}>{name}</span> ?
+      Are you sure you want to delete recipe&nbsp;<span className={style.name}>{name}</span> ?
     </div>
     <footer>
       <BasicButton label="yes, delete" onClick={() => onApply(id)} />

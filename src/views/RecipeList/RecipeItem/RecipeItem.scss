@@ -71,3 +71,12 @@
     flex: 1 0 10px;
   }
 }
+
+.recipe {
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+  > :first-child {
+    padding-right: 4px;
+  }
+}
