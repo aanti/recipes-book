@@ -7,6 +7,7 @@ import { AddButton } from '../../Button'
 import { Delete as DeleteIcon } from '../../Icon'
 
 import style from './TextField.scss'
+import {atLeastOne} from "../../../utils/validation";
 
 export class TextInput extends Component {
   inputRef = React.createRef()
@@ -19,8 +20,10 @@ export class TextInput extends Component {
     this.setState({ active: true })
   }
 
-  handleBlur = () => {
+  handleBlur = (e) => {
+    const { input: { onBlur } } = this.props
     this.setState({ active: false })
+    onBlur(e)
   }
 
   handleChange = () => {
@@ -31,7 +34,8 @@ export class TextInput extends Component {
 
   render () {
     const { active } = this.state
-    const { input: { value }, meta: { error } = { error: '' }, className, label, type = 'input', placeholder } = this.props
+    const { input: { value }, meta: { error, touched } = { error: '' }, className, label, type = 'input', placeholder } = this.props
+    console.log(this.props)
     return (
       <div className={classnames(style.container, className)}>
         <div className={style.label}>{label}</div>
@@ -46,7 +50,7 @@ export class TextInput extends Component {
           })
         }
         <div className={classnames(style.underline, active ? style.active : style.normal)} />
-        <div className={style.errorText}>{error}</div>
+        <div className={style.errorText}>{touched && error}</div>
       </div>
     )
   }
@@ -56,20 +60,22 @@ export const TextField = ({ name, ...rest }) => (
   <Field name={name} component={TextInput} {...rest} />
 )
 
-export const TextFieldArray = ({ name, ...rest }) => (
+export const TextFieldArray = ({ name, validate, ...rest }) => (
   <FieldArray name={name} component={InputArray} {...rest}>
     {
-      (field) => <TextField name={field} {...rest} />
+      (field) => <TextField name={field} validate={validate} {...rest} />
     }
   </FieldArray>
 )
+
+const ingredientValidation = atLeastOne('ingredients', v => !!(v || {}).product)
 
 export const IngredientArray = ({ name, ...rest }) => (
   <FieldArray name={name} component={InputArray} {...rest}>
     {
       (field) => (
         <div className={style.ingredient}>
-          <TextField name={`${field}.product`} className={style.product} placeholder="name of product" />
+          <TextField name={`${field}.product`} validate={ingredientValidation} className={style.product} placeholder="name of product" />
           <TextField name={`${field}.amount`} className={style.amount} placeholder="amount / unit" />
         </div>
       )

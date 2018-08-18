@@ -5,19 +5,23 @@ import { TextField, TextFieldArray, IngredientArray } from '../../components/Fie
 import { BasicButton } from '../../components/Button'
 import Section from '../../components/Section/Section'
 
+import { required, atLeastOne } from '../../utils/validation'
+
 import style from './RecipeForm.scss'
+
+const recipeValidate = atLeastOne('recipe')
 
 const RecipeForm = ({ handleSubmit, onCancel }) => (
   <div className={style.container}>
     <Section title="General">
-      <TextField name="name" placeholder="name" />
+      <TextField name="name" placeholder="name" validate={required} />
       <TextField name="description" placeholder="description" />
     </Section>
     <Section title="Ingredients">
-      <IngredientArray name="ingredients" newItemLabel="add ingredient" />
+      <IngredientArray name="ingredients" newItemLabel="add item" />
     </Section>
     <Section title="Recipe">
-      <TextFieldArray name="recipe" newItemLabel="add step" placeholder="what should I do?" />
+      <TextFieldArray name="recipe" newItemLabel="add step" placeholder="what should I do?" validate={recipeValidate} />
     </Section>
     <footer>
       <BasicButton label="save" onClick={handleSubmit} />
@@ -28,6 +32,8 @@ const RecipeForm = ({ handleSubmit, onCancel }) => (
 
 export default reduxForm({
   form: 'createNewRecipe',
+  touchOnBlur: true,
+  touchOnChange: true,
   initialValues: {
     recipe: [''],
     ingredients: [{ product: '', amount: '' }]
