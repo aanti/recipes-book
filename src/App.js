@@ -17,22 +17,33 @@ class App extends Component {
 
   handleSubmit = (values) => {
     this.props.dispatch(addRecipe(values))
-    this.handleModalClose()
   }
 
   render() {
-    const { ui, dispatch } = this.props
+    const { ui, dispatch, initialValues } = this.props
     return (
       <div className={style.App}>
         <RecipeList />
         <Modal open={ui.modal.open}>
-          <RecipeForm onSubmit={this.handleSubmit} onCancel={this.handleModalClose} />
+          <RecipeForm onSubmit={this.handleSubmit} onCancel={this.handleModalClose} initialValues={initialValues} />
         </Modal>
       </div>
     )
   }
 }
 
-const mapStateToProps = ({ ui }) => ({ ui })
+const initialValuesSelector = state => {
+  const { data, ui: { activeItemId } } = state
+  if (!activeItemId) {
+    return undefined
+  }
+  const index = data.findIndex(item => item.id === activeItemId)
+  return (index !== -1) ? data[index] : undefined
+}
+
+const mapStateToProps = (state) => ({
+  ui: state.ui,
+  initialValues: initialValuesSelector(state)
+})
 
 export default connect(mapStateToProps)(App)

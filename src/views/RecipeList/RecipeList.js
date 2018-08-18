@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import RecipeItem from './RecipeItem/RecipeItem'
 
-import { openModal, deleteRecipe } from '../../actions'
+import { openModal, deleteRecipe, modifyRecipe } from '../../actions'
 
 import NoData from '../../components/NoData/NoData'
 
@@ -16,6 +16,11 @@ class RecipeList extends Component {
     dispatch(deleteRecipe(id))
   }
 
+  handleModify = id => {
+    const { dispatch } = this.props
+    dispatch(modifyRecipe(id))
+  }
+
   render () {
     const { dispatch, data } = this.props
     return (
@@ -24,8 +29,13 @@ class RecipeList extends Component {
         {
           data.length
             ?
-              data.map(({ id, ...item }) => (
-                <RecipeItem key={id} {...item} id={id} onDelete={this.handleDelete} />
+              data.map((item) => (
+                <RecipeItem
+                  key={item.id}
+                  {...item}
+                  onDelete={this.handleDelete}
+                  onModify={this.handleModify}
+                />
               ))
             :
               <NoData />
