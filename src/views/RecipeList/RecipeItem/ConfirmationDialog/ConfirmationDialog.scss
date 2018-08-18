@@ -1,0 +1,13 @@
+@import "../../../../theme/theme";
+.container {
+  padding: 1em;
+  height: 100%;
+}
+
+.question {
+  padding: 0.5em 0.5em 1em;
+  color: $textColor;
+  .name {
+    font-weight: 500;
+  }
+}

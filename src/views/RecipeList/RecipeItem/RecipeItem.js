@@ -5,7 +5,7 @@ import Section from '../../../components/Section/Section'
 
 import style from './RecipeItem.scss'
 
-class RecipeItem extends Component {
+class RecipeItemContent extends Component {
   innerRef = React.createRef()
   height = 0
   initial = true
@@ -14,6 +14,18 @@ class RecipeItem extends Component {
     this.height = this.innerRef.current.clientHeight
     this.initial = false
     this.forceUpdate()
+  }
+
+  handleDelete = (e) => {
+    const { id, onDelete } = this.props
+    e.stopPropagation()
+    onDelete(id)
+  }
+
+  handleModify = (e) => {
+    const { id, onModify } = this.props
+    e.stopPropagation()
+    onModify(id)
   }
 
   render () {
@@ -49,8 +61,8 @@ class RecipeItem extends Component {
                     ))
                   }
                 </Section>
-                <div onClick={() => onModify(id)}>MODIFY RECIPE!</div>
-                <div onClick={() => onDelete(id)}>DELETE RECIPE!</div>
+                <div onClick={this.handleModify}>MODIFY RECIPE!</div>
+                <div onClick={this.handleDelete}>DELETE RECIPE!</div>
               </React.Fragment>
             )
           }
@@ -60,7 +72,7 @@ class RecipeItem extends Component {
   }
 }
 
-class Item extends Component {
+class RecipeItem extends Component {
   state = {
     open: false
   }
@@ -71,8 +83,8 @@ class Item extends Component {
 
   render () {
     const { open } = this.state
-    return <RecipeItem {...this.props} open={open} onClick={this.handleClick} />
+    return <RecipeItemContent {...this.props} open={open} onClick={this.handleClick} />
   }
 }
 
-export default Item
+export default RecipeItem

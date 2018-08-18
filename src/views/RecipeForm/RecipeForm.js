@@ -1,8 +1,8 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
 
-import { TextInput, TextField, TextFieldArray, IngredientArray } from '../../components/Field/TextField/TextField'
-import { AddButton, BasicButton } from '../../components/Button'
+import { TextField, TextFieldArray, IngredientArray } from '../../components/Field/TextField/TextField'
+import { BasicButton } from '../../components/Button'
 import Section from '../../components/Section/Section'
 
 import style from './RecipeForm.scss'

@@ -22,3 +22,12 @@ export const modifyRecipe = (id) => ({
   type: types.MODIFY_RECIPE,
   payload: { id }
 })
+
+export const openConfirmationDialog = (id) => ({
+  type: types.OPEN_DELETE_DIALOG,
+  payload: { id }
+})
+
+export const closeConfirmationDialog = () => ({
+  type: types.CLOSE_DELETE_DIALOG
+})
