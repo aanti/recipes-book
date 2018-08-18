@@ -7,7 +7,7 @@ import { AddButton } from '../../Button'
 import { Delete as DeleteIcon } from '../../Icon'
 
 import style from './TextField.scss'
-import {atLeastOne} from "../../../utils/validation";
+import {required, atLeastOne} from "../../../utils/validation";
 
 export class TextInput extends Component {
   inputRef = React.createRef()
@@ -68,14 +68,12 @@ export const TextFieldArray = ({ name, validate, ...rest }) => (
   </FieldArray>
 )
 
-const ingredientValidation = atLeastOne('ingredients', v => !!(v || {}).product)
-
 export const IngredientArray = ({ name, ...rest }) => (
   <FieldArray name={name} component={InputArray} {...rest}>
     {
       (field) => (
         <div className={style.ingredient}>
-          <TextField name={`${field}.product`} validate={ingredientValidation} className={style.product} placeholder="name of product" />
+          <TextField name={`${field}.product`} validate={required} className={style.product} placeholder="name of product" />
           <TextField name={`${field}.amount`} className={style.amount} placeholder="amount / unit" />
         </div>
       )

@@ -38,10 +38,13 @@ class Collapsed extends Component {
   }
 
   render () {
-    const { className, children, onClick } = this.props
+    const { className, expandedClassName, children, onClick } = this.props
     const { open } = this.state
     return (
-      <div className={classnames(style.container, className)} style={{ height: this.getContainerHeight() }}>
+      <div
+        className={classnames(style.container, open && expandedClassName, className)}
+        style={{ height: this.getContainerHeight() }}
+      >
         {
           React.Children.map(children, child => React.cloneElement(child, {
             open: open || this.initial,

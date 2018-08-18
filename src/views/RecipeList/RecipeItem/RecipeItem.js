@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Section from '../../../components/Section/Section'
 import Collapsed from '../../../components/Collapsed/Collapsed'
+import { BasicButton } from '../../../components/Button'
 
 import style from './RecipeItem.scss'
 
@@ -21,13 +22,15 @@ class RecipeItem extends Component {
   render () {
     const { name, id, description, ingredients, recipe, open, onClick, onDelete, onModify } = this.props
     return (
-      <Collapsed className={style.container}>
+      <Collapsed className={style.container} expandedClassName={style.expanded}>
         <Collapsed.Header className={style.header}>
-          <div className={style.name}>{name}</div>
-          <div className={style.description}>{description}</div>
+          <div>
+            <div className={style.name}>{name}</div>
+            <div className={style.description}>{description}</div>
+          </div>
         </Collapsed.Header>
         <Collapsed.Content className={style.content}>
-          <Section title="ingredients" titleColor="#fff">
+          <Section className={style.section} title="ingredients" titleColor="#1fb4ff">
             {
               ingredients.map(({ product, amount }, i) => (
                 <div key={i} className={style.ingredient}>
@@ -37,7 +40,7 @@ class RecipeItem extends Component {
               ))
             }
           </Section>
-          <Section title="recipe" titleColor="#fff">
+          <Section className={style.section} title="recipe" titleColor="#1fb4ff">
             {
               recipe.map((step, i) => (
                 <div key={i}>
@@ -46,8 +49,10 @@ class RecipeItem extends Component {
               ))
             }
           </Section>
-          <div onClick={this.handleModify}>MODIFY RECIPE!</div>
-          <div onClick={this.handleDelete}>DELETE RECIPE!</div>
+          <div className={style.buttons}>
+            <BasicButton label="modify" onClick={this.handleModify} />
+            <BasicButton label="delete" onClick={this.handleDelete} />
+          </div>
         </Collapsed.Content>
       </Collapsed>
     )

@@ -2,23 +2,28 @@
 
 .container {
   margin-left: -8px;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   opacity: 0.85;
-  border-radius: 2px 0 0 2px;
+  border-radius: 3px 0 0 3px;
   background-color: $itemColor;
   box-sizing: border-box;
-  padding: 5px 20px;
   cursor: pointer;
   border-left: 8px solid $accentColor;
   color: $textColor;
 
   .header {
-    height: 50px;
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
   }
 
   .content {
     padding: 1em 0;
     font-size: 14px;
+    .section {
+      padding: 5px 0;
+    }
   }
 
   .name {
@@ -31,21 +36,33 @@
   }
 
   &:hover {
+    color: $light;
     opacity: 1;
-    background-color: #FE5F55;
+    background-color: $accentColor;
   }
 
   &.expanded {
+    color: $light;
     opacity: 1;
-    background-color: #FE5F55;
+    background-color: $accentColor;
+    .header {
+      border-bottom: 2px solid $buttonColor;
+    }
+    .content {
+      padding: 20px;
+    }
   }
+}
+
+.buttons {
+  @extend .flex;
 }
 
 .ingredient {
   @extend .flex;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0.25em 0;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid rgba(30, 180, 255, 0.5);
   & > :first-child {
     flex: 1 0 140px;
     padding-right: 20px;

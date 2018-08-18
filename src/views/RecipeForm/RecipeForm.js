@@ -5,11 +5,9 @@ import { TextField, TextFieldArray, IngredientArray } from '../../components/Fie
 import { BasicButton } from '../../components/Button'
 import Section from '../../components/Section/Section'
 
-import { required, atLeastOne } from '../../utils/validation'
+import { required } from '../../utils/validation'
 
 import style from './RecipeForm.scss'
-
-const recipeValidate = atLeastOne('recipe')
 
 const RecipeForm = ({ handleSubmit, onCancel }) => (
   <div className={style.container}>
@@ -21,7 +19,7 @@ const RecipeForm = ({ handleSubmit, onCancel }) => (
       <IngredientArray name="ingredients" newItemLabel="add item" />
     </Section>
     <Section title="Recipe">
-      <TextFieldArray name="recipe" newItemLabel="add step" placeholder="what should I do?" validate={recipeValidate} />
+      <TextFieldArray name="recipe" newItemLabel="add step" placeholder="what should I do?" validate={required} />
     </Section>
     <footer>
       <BasicButton label="save" onClick={handleSubmit} />
