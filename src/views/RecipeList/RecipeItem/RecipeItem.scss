@@ -8,24 +8,26 @@
   background-color: $itemColor;
   box-sizing: border-box;
   padding: 5px 20px;
-  height: 50px;
   cursor: pointer;
   border-left: 8px solid $accentColor;
-  transition: height 0.4s ease-out;
   color: $textColor;
-  overflow: hidden;
 
-  .name {
-    font-size: 16px;
-  }
-  .description {
-    font-size: 12px;
-    font-weight: 300;
+  .header {
+    height: 50px;
   }
 
   .content {
     padding: 1em 0;
     font-size: 14px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 12px;
+    font-weight: 300;
   }
 
   &:hover {
