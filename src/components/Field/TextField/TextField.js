@@ -35,7 +35,6 @@ export class TextInput extends Component {
   render () {
     const { active } = this.state
     const { input: { value }, meta: { error, touched } = { error: '' }, className, label, type = 'input', placeholder } = this.props
-    console.log(this.props)
     return (
       <div className={classnames(style.container, className)}>
         <div className={style.label}>{label}</div>

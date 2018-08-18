@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 import Section from '../../../components/Section/Section'
 import Collapsed from '../../../components/Collapsed/Collapsed'
@@ -6,7 +6,7 @@ import { BasicButton } from '../../../components/Button'
 
 import style from './RecipeItem.scss'
 
-class RecipeItem extends Component {
+class RecipeItem extends PureComponent {
   handleDelete = (e) => {
     const { id, onDelete } = this.props
     e.stopPropagation()

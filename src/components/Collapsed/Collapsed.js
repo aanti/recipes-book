@@ -37,6 +37,10 @@ class Collapsed extends Component {
     this.forceUpdate() // force update in order to hide expanded content (after measurement of initial render height)
   }
 
+  componentDidUpdate (prevProps, prevState) {
+    console.log('collapse did update')
+  }
+
   render () {
     const { className, expandedClassName, children, onClick } = this.props
     const { open } = this.state
