@@ -11,7 +11,9 @@ const Modal = ({ children, className, open }) => (
           <Fragment>
             <div className={style.background}>
               <div className={style.modal}>
-                {children}
+                <div className={style.content}>
+                  {children}
+                  </div>
               </div>
             </div>
           </Fragment>

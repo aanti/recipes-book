@@ -38,7 +38,7 @@ class Collapsed extends Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    console.log('collapse did update')
+    // TODO
   }
 
   render () {
