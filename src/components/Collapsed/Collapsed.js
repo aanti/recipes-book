@@ -8,7 +8,7 @@ class Collapsed extends Component {
     <div className={className} ref={headerRef} onClick={onClick}>{children}</div>
   )
   static Content = ({ open, className, children, contentRef }) => open
-    ? <div className={className} ref={contentRef}>{children}</div>
+    ? <div className={className} style={{ boxSizing: 'border-box' }} ref={contentRef}>{children}</div>
     : null
 
   state = {
@@ -30,15 +30,22 @@ class Collapsed extends Component {
     return open ? this.height : this.headerHeight
   }
 
+  recalculateContent = () => {
+    this.headerHeight = this.outerRef.current ? this.outerRef.current.clientHeight : 0
+    this.height = this.innerRef.current ? this.innerRef.current.clientHeight + this.headerHeight : 0
+  }
+
   componentDidMount = () => {
-    this.headerHeight = this.outerRef.current.offsetHeight
-    this.height = this.innerRef.current.clientHeight + this.headerHeight
+    this.recalculateContent()
     this.initial = false
     this.forceUpdate() // force update in order to hide expanded content (after measurement of initial render height)
   }
 
   componentDidUpdate (prevProps, prevState) {
-    // TODO
+    if (prevProps.children !== this.props.children) {
+      this.recalculateContent()
+      this.forceUpdate()
+    }
   }
 
   render () {
