@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 import style from './Modal.scss'
 
@@ -10,10 +11,8 @@ const Modal = ({ children, className, open }) => (
         ?
           <Fragment>
             <div className={style.background}>
-              <div className={style.modal}>
-                <div className={style.content}>
-                  {children}
-                  </div>
+              <div className={classnames(style.modal, className)}>
+                {children}
               </div>
             </div>
           </Fragment>

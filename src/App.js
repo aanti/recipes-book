@@ -35,7 +35,7 @@ const App = ({
   return (
     <div className={style.App}>
       <RecipeList onDelete={onDeleteRequest} onModify={onModify} onNewRecipeClick={onModalOpen} />
-      <Modal open={modal.open}>
+      <Modal open={modal.open} className={style.formModal}>
         <RecipeForm onSubmit={onSubmit} onCancel={onModalClose} initialValues={initialValues} />
       </Modal>
       <ConfirmationDialog

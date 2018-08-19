@@ -2,6 +2,8 @@
 
 .container {
   padding: 10px 1em;
+  overflow-y: auto;
+  height: 100%;
 }
 
 .ingredient {
