@@ -18,15 +18,40 @@ export const list = [
     id: uuid(),
     name: 'Blueberry muffins',
     description: 'Feel blue!',
-    ingredients: [],
-    recipe: ['Make.', 'Eat.']
+    ingredients: [
+      { product: 'Blueberries', amount: '400-500 g' },
+      { product: 'Flour', amount: '2 cups' },
+      { product: 'Eggs', amount: '2' },
+      { product: 'Sugar', amount: '120 g' },
+      { product: 'Salt', amount: '1 pinch' },
+      { product: 'Cinnamon', amount: '1 tsp' },
+    ],
+    recipe: [
+      'Preheat oven to 200 degrees C.',
+      'Combine flour, sugar, salt and baking powder.',
+      'Add eggs, mix everything.',
+      'Carefully add blueberries.',
+      'Bake for 20 to 25 minutes in the preheated oven.'
+    ]
   },
   {
     id: uuid(),
     name: 'Ramen',
     description: 'Like a pro',
-    ingredients: [],
-    recipe: ['Make.', 'Eat.']
+    ingredients: [
+      { product: 'Chicken stock', amount: '700 ml' },
+      { product: 'Garlic', amount: '3 cloves (halved)' },
+      { product: 'Soy souce', amount: '1 tsp' },
+      { product: 'Ramen noodles', amount: '375 g' },
+      { product: 'Sesame oil', amount: '2 tsp' },
+      { product: 'Eggs', amount: '4' }
+    ],
+    recipe: [
+      'Mix the chicken stock, garlic, soy sauce, Worcestershire sauce, ginger, five spice, chilli powder and 300ml water in a stockpot or large saucepan, bring to the boil, then reduce the heat and simmer for 5 mins.',
+      'Cook the ramen noodles following pack instructions, then drain and set aside.',
+      'Divide the noodles between four bowls. Top each with a quarter of the meat and spinach, 1 tbsp sweetcorn and two egg halves.',
+      'Strain the stock into a clean pan, then bring to the boil once again. Divide the stock between the bowls, then sprinkle over the nori, spring onion or shallots and sesame seeds.'
+    ]
   },
   {
     id: uuid(),
