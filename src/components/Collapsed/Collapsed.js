@@ -69,4 +69,7 @@ class Collapsed extends Component {
   }
 }
 
+Collapsed.Header.displayName = 'Collapsed.Header'
+Collapsed.Content.displayName = 'Collapsed.Content'
+
 export default Collapsed
