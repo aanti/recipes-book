@@ -1,11 +1,13 @@
 .container {
   transition: height 0.4s ease-out;
   overflow: hidden;
+  box-sizing: border-box;
 
   background-color: lightblue;
   .header {
+    box-sizing: border-box;
   }
   .content {
-
+    box-sizing: border-box;
   }
 }
