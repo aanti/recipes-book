@@ -12,7 +12,7 @@ App is based on well known React starter - **create react app**, with additional
  - **classnames** to apply multiple classnames to React components (or with additional conditions)  
  - **React-helmet** to apply *body* style when modal view is on (more precisely: to hide scrollbar)  
  - **uuid** to give unique id when new recipe is created  
- - **enzyme**, **jest* for tests  
+ - **enzyme**, **jest** for tests
   
  To run the app, just type:
  ```
