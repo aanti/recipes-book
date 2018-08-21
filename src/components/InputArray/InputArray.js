@@ -23,7 +23,7 @@ export const InputArray = ({ children, fields = [], newItemLabel, ...props }) =>
 
 InputArray.propTypes = {
   children: PropTypes.func.isRequired,
-  fields: PropTypes.array,
+  fields: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   newItemLabel: PropTypes.string
 }
 
