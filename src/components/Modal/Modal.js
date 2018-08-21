@@ -15,7 +15,7 @@ const Modal = ({ children, className, open }) => (
               <div className={classnames(style.modal, className)}>
                 {children}
               </div>
-              <Helmet bodyAttributes={{ style: 'overflow: hidden' }}/>
+              <Helmet bodyAttributes={{ style: 'overflow: hidden' }} />
             </div>
 
           </Fragment>
@@ -26,8 +26,9 @@ const Modal = ({ children, className, open }) => (
 )
 
 Modal.propTypes = {
-  open: PropTypes.bool,
-  onOutsideClick: PropTypes.func
+  open: PropTypes.bool.isRequired,
+  children: PropTypes.element.isRequired,
+  className: PropTypes.string
 }
 
 export default Modal

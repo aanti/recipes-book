@@ -1,47 +1,4 @@
 @import "../../../theme/theme";
-.container {
-  width: 100%;
-  position: relative;
-  padding: 0 0 2px;
-  input, textarea {
-    border: none;
-    outline: none;
-    background: none;
-    width: 100%;
-    font: 300 14px Roboto;
-    &::placeholder {
-      color: $placeholderColor;
-    }
-  }
-  .label {
-    font-size: 12px;
-    color: $labelColor;
-  }
-  .underline {
-    height: 0px;
-    width: 0;
-    border-bottom: 1px solid;
-    transition: border-bottom-color 0.2s linear;
-    &.error {
-      border-bottom-color: #f13a2f;
-      width: 100%;
-    }
-    &.normal {
-      border-bottom-color: #e0e0e0;
-      width: 100%;
-    }
-    &.active {
-      border-bottom-color: $buttonColor;
-      width: 100%;
-    }
-  }
-  .errorText {
-    padding-top: 2px;
-    font-size: 12px;
-    height: 14px;
-    color: #f13a2f;
-  }
-}
 
 .arrayItem {
   @extend .flex;

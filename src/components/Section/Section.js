@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import style from './Section.scss'
@@ -11,5 +12,16 @@ const Section = ({ title, children, className, titleColor }) => (
     </div>
   </section>
 )
+
+Section.defaultProps = {
+  title: ''
+}
+
+Section.propTypes = {
+  title: PropTypes.string,
+  children: PropTypes.element.isRequired,
+  className: PropTypes.string,
+  titleColor: PropTypes.string
+}
 
 export default Section

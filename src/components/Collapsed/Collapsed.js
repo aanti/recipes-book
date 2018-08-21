@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import classnames from 'classnames'
 
 import style from './Collapsed.scss'
+
+// Implementation based on Compound Components pattern
 
 class Collapsed extends Component {
   static Header = ({ children, className, onClick, headerRef }) => (
@@ -49,7 +52,7 @@ class Collapsed extends Component {
   }
 
   render () {
-    const { className, expandedClassName, children, onClick } = this.props
+    const { className, expandedClassName, children } = this.props
     const { open } = this.state
     return (
       <div
@@ -67,6 +70,12 @@ class Collapsed extends Component {
       </div>
     )
   }
+}
+
+Collapsed.propTypes = {
+  className: PropTypes.string,
+  expandedClassName: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.instanceOf(Collapsed.Header), PropTypes.instanceOf(Collapsed.Content)]).isRequired
 }
 
 Collapsed.Header.displayName = 'Collapsed.Header'

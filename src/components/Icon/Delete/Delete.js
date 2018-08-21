@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Delete = ({ color = '#000', size = 10, ...props }) => (
+const Delete = ({ color, size, ...props }) => (
   <div>
     <svg viewBox="0 0 126.753 126.753" height={size} width={size} {...props}>
       <g
@@ -15,5 +16,15 @@ const Delete = ({ color = '#000', size = 10, ...props }) => (
     </svg>
   </div>
 )
+
+Delete.defaultProps = {
+  color: '#000',
+  size: 10
+}
+
+Delete.propTypes = {
+  color: PropTypes.string,
+  size: PropTypes.number
+}
 
 export default Delete
