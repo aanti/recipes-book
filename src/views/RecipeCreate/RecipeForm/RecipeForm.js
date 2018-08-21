@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { reduxForm } from 'redux-form'
 
-import { TextField, TextFieldArray, IngredientArray } from '../../../components/Field/TextField/TextField'
+import { TextField, TextFieldArray, IngredientFieldArray } from '../../../components/Field/Field'
 import { BasicButton } from '../../../components/Button'
 import Section from '../../../components/Section/Section'
 
@@ -17,7 +17,7 @@ const RecipeForm = ({ handleSubmit, onCancel }) => (
       <TextField name="description" placeholder="description" />
     </Section>
     <Section title="Ingredients">
-      <IngredientArray name="ingredients" newItemLabel="add item" />
+      <IngredientFieldArray name="ingredients" newItemLabel="add item" />
     </Section>
     <Section title="Recipe">
       <TextFieldArray name="recipe" newItemLabel="add step" placeholder="what should I do?" validate={required} />

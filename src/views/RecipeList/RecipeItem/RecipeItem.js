@@ -21,7 +21,7 @@ class RecipeItem extends PureComponent {
   }
 
   render () {
-    const { name, id, description, ingredients, recipe, open, onClick, onDelete, onModify } = this.props
+    const { name, description, ingredients, recipe } = this.props
     return (
       <Collapsed className={style.container} expandedClassName={style.expanded}>
         <Collapsed.Header className={style.header}>
