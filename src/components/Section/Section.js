@@ -19,7 +19,7 @@ Section.defaultProps = {
 
 Section.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired,
   className: PropTypes.string,
   titleColor: PropTypes.string
 }

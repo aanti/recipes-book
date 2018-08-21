@@ -72,13 +72,13 @@ class Collapsed extends Component {
   }
 }
 
+Collapsed.Header.displayName = 'Collapsed.Header'
+Collapsed.Content.displayName = 'Collapsed.Content'
+
 Collapsed.propTypes = {
   className: PropTypes.string,
   expandedClassName: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.instanceOf(Collapsed.Header), PropTypes.instanceOf(Collapsed.Content)]).isRequired
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired
 }
-
-Collapsed.Header.displayName = 'Collapsed.Header'
-Collapsed.Content.displayName = 'Collapsed.Content'
 
 export default Collapsed

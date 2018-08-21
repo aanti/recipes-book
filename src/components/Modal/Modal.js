@@ -27,7 +27,7 @@ const Modal = ({ children, className, open }) => (
 
 Modal.propTypes = {
   open: PropTypes.bool.isRequired,
-  children: PropTypes.element.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]).isRequired,
   className: PropTypes.string
 }
 

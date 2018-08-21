@@ -63,14 +63,9 @@ class RecipeItem extends PureComponent {
 
 RecipeItem.propTypes = {
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   description: PropTypes.string,
   ingredients: PropTypes.arrayOf(PropTypes.shape({ product: PropTypes.string.isRequired, amount: PropTypes.string })).isRequired,
-  recipe: PropTypes.arrayOf(PropTypes.string).isRequired,
-  open: PropTypes.bool.isRequired,
-  onClick: PropTypes.func.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onModify: PropTypes.func.isRequired
+  recipe: PropTypes.arrayOf(PropTypes.string).isRequired
 }
 
 export default RecipeItem
