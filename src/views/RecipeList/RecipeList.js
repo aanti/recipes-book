@@ -1,10 +1,12 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { AddButton } from '../../components/Button'
 import { connect } from 'react-redux'
 
+import NoData from '../../components/NoData/NoData'
 import RecipeItem from './RecipeItem/RecipeItem'
 
-import NoData from '../../components/NoData/NoData'
+import { modifyRecipe, openConfirmationDialog, openModal } from '../../actions'
 
 import style from './RecipeList.scss'
 
@@ -31,6 +33,22 @@ const RecipeList = ({ data, onDelete, onModify, onNewRecipeClick }) => (
   </div>
 )
 
-const mapStateToProps = ({ data }) => ({ data })
+RecipeList.propTypes = {
+  data: PropTypes.array,
+  onDelete: PropTypes.func.isRequired,
+  onModify: PropTypes.func.isRequired,
+  onNewRecipeClick: PropTypes.func.isRequired
+}
 
-export default connect(mapStateToProps)(RecipeList)
+const mapStateToProps = state => {
+  const { data } = state
+  return { data }
+}
+
+const mapDispatchToProps = dispatch => ({
+  onDelete: (id) => dispatch(openConfirmationDialog(id)),
+  onModify: (id) => dispatch(modifyRecipe(id)),
+  onNewRecipeClick: () => dispatch(openModal())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeList)

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 
 import Section from '../../../components/Section/Section'
 import Collapsed from '../../../components/Collapsed/Collapsed'
@@ -58,6 +59,18 @@ class RecipeItem extends PureComponent {
       </Collapsed>
     )
   }
+}
+
+RecipeItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  ingredients: PropTypes.arrayOf(PropTypes.shape({ product: PropTypes.string.isRequired, amount: PropTypes.string })).isRequired,
+  recipe: PropTypes.arrayOf(PropTypes.string).isRequired,
+  open: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  onModify: PropTypes.func.isRequired
 }
 
 export default RecipeItem
