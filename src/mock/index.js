@@ -57,14 +57,20 @@ export const list = [
     id: uuid(),
     name: 'Butter Chicken',
     description: 'Indian treasure',
-    ingredients: [],
+    ingredients: [
+      { product: 'Butter', amount: '200 g' },
+      { product: 'Chicken', amount: '1' }
+    ],
     recipe: ['Make.', 'Eat.']
   },
   {
     id: uuid(),
     name: 'Moussaka',
     description: 'Lasagne from potatos ;-)',
-    ingredients: [],
+    ingredients: [
+      { product: 'Potatos', amount: '3 kg' },
+      { product: 'Good mood', amount: '1 smile' }
+    ],
     recipe: ['Make.', 'Eat.']
   }
 ]
