@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import classnames from "classnames";
 
 import style from './TextInput.scss'
 
-class TextInput extends Component {
+class TextInput extends PureComponent {
   inputRef = React.createRef()
   state = {
     active: false,
@@ -28,8 +28,8 @@ class TextInput extends Component {
   }
 
   render () {
-    const { active } = this.state
-    const { input: { value }, meta: { error, touched } = { error: '' }, className, label, type = 'input', placeholder } = this.props
+    const { active, value } = this.state
+    const { meta: { error, touched } = { error: '' }, className, label, type = 'input', placeholder } = this.props
     return (
       <div className={classnames(style.container, className)}>
         <div className={style.label}>{label}</div>
